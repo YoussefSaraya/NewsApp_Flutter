@@ -1,10 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:newsapp/API/api_manager.dart';
+import 'package:newsapp/Home/category/category_details.dart';
+import 'package:newsapp/Home/category/cateogry_fragment.dart';
+import 'package:newsapp/Home/tabs/tab_widget.dart';
+import 'package:newsapp/Model/SourceResponse.dart';
 import 'package:newsapp/app_colors.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   static const String routeName='home_screen';
   const HomeScreen({super.key});
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Stack(children: [
@@ -23,6 +33,7 @@ class HomeScreen extends StatelessWidget {
             style: Theme.of(context).textTheme.titleLarge,
           ),
         ),
+        body:CategoryFragment(),
       )
     ],);
   }
